@@ -44,11 +44,15 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -65,18 +69,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="createKeyFunction.cpp" />
-    <ClCompile Include="deleteKeyFunction.cpp" />
-    <ClCompile Include="deleteValueFunction.cpp" />
-    <ClCompile Include="inputAndChackStringForRegxExp.cpp" />
-    <ClCompile Include="outputKeyValuesFunction.cpp" />
-    <ClCompile Include="outputSubKeysFunction.cpp" />
+    <ClCompile Include="copyKeys.cpp" />
+    <ClCompile Include="createKey.cpp" />
+    <ClCompile Include="createNewParameter.cpp" />
+    <ClCompile Include="deleteKey.cpp" />
+    <ClCompile Include="deleteParameter.cpp" />
+    <ClCompile Include="getInformationAboutRegistry.cpp" />
+    <ClCompile Include="inputAndCheckStringForRegxExp.cpp" />
+    <ClCompile Include="outputFunctions.cpp" />
+    <ClCompile Include="outputParametersNames.cpp" />
+    <ClCompile Include="outputSubKeysNames.cpp" />
     <ClCompile Include="readRegistryValues.cpp" />
-    <ClCompile Include="selectOfActionFunction.cpp" />
-    <ClCompile Include="Исходный код.cpp" />
+    <ClCompile Include="selectOfAction.cpp" />
+    <ClCompile Include="workWithFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="functionPrototype.h" />
+    <ClInclude Include="RegularExpressionClass.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="reg_edit.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

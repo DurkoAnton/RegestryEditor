@@ -1,0 +1,26 @@
+﻿Сборка начата 09.09.2020 22:20:24.
+     1>Проект "D:\reg_edit\reg_edit\reg_edit.vcxproj" в узле 2 (целевые объекты Build).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\reg_edit\Debug\reg_edit.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='requireAdministrator' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\reg_edit\Debug\reg_edit.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\reg_edit\Debug\reg_edit.lib" /MACHINE:X86 Debug\reg_edit.res
+         Debug\copyKeys.obj
+         Debug\createKey.obj
+         Debug\createNewParameter.obj
+         Debug\deleteKey.obj
+         Debug\deleteParameter.obj
+         Debug\getInformationAboutRegistry.obj
+         Debug\inputAndCheckStringForRegxExp.obj
+         Debug\outputFunctions.obj
+         Debug\outputParametersNames.obj
+         Debug\outputSubKeysNames.obj
+         Debug\readRegistryValues.obj
+         Debug\selectOfAction.obj
+         Debug\workWithFiles.obj
+         LINK : не найден или не выполнена сборка D:\reg_edit\Debug\reg_edit.exe при последней инкрементной компоновке; выполняется полная компоновка
+         reg_edit.vcxproj -> D:\reg_edit\Debug\reg_edit.exe
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"D:\reg_edit\Debug\reg_edit.bsc" /n Debug\copyKeys.sbr Debug\createKey.sbr Debug\createNewParameter.sbr Debug\deleteKey.sbr Debug\deleteParameter.sbr Debug\getInformationAboutRegistry.sbr Debug\inputAndCheckStringForRegxExp.sbr Debug\outputFunctions.sbr Debug\outputParametersNames.sbr Debug\outputSubKeysNames.sbr Debug\readRegistryValues.sbr Debug\selectOfAction.sbr Debug\workWithFiles.sbr
+     1>Сборка проекта "D:\reg_edit\reg_edit\reg_edit.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:38.41

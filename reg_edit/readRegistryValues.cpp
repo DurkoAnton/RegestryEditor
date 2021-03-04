@@ -1,40 +1,27 @@
 #include"functionPrototype.h"
 
-bool RegistryFunctions::readRegistryValue(string fullPathToTheKey){
+ResultOfRegistryFunctions RegistryFunctions::readParameterValue(string fullPathToTheKey){
 
 	string parameterNameString;
-	TCHAR *pathToTheKey, *parameterName;
 	DWORD valueType;
-	string tempStringForSearch = fullPathToTheKey.substr(fullPathToTheKey.find_first_of('\\') + 1, fullPathToTheKey.length() - fullPathToTheKey.find_first_of('\\'));
 
-	if (fullPathToTheKey.find_first_of('\\') == -1)
-		pathToTheKey = NULL;
+	string pathToTheKey = "";
+	
+	if (fullPathToTheKey.find_first_of('\\') != -1)
+		 pathToTheKey = fullPathToTheKey.substr(fullPathToTheKey.find_first_of('\\') + 1, fullPathToTheKey.length() - fullPathToTheKey.find_first_of('\\'));
 
-	else
-	{
-		pathToTheKey = new TCHAR[tempStringForSearch.length()];
-		copy(tempStringForSearch.begin(), tempStringForSearch.end(), pathToTheKey);
-		pathToTheKey[tempStringForSearch.length()] = '\0';
-	}
 	DWORD size = MAX_PATH;
 	char parameterValue[MAX_PATH];
 	fflush(stdin);
-	cout << endl << "Введите имя параметра:" << endl;
-	getline(cin, parameterNameString);
 
-	parameterName = new TCHAR[parameterNameString.length()];
-	copy(parameterNameString.begin(), parameterNameString.end(), parameterName);
-	parameterName[parameterNameString.length()] = '\0';
+	parameterNameString = checkingForRegularExpression.inputAndCheckParameterName();
 
-	if (RegGetValue(tranformStringToHKEY(fullPathToTheKey.substr(0, fullPathToTheKey.find_first_of('\\'))), pathToTheKey, parameterName, RRF_RT_ANY, (LPDWORD)& valueType, parameterValue, &size) != ERROR_SUCCESS) {
-		return false;
-	}
-	else{
-		checkType(valueType, parameterValue, size);
-	}
+	if (RegGetValue(tranformStringToHKEY(fullPathToTheKey.substr(0, fullPathToTheKey.find_first_of('\\'))), pathToTheKey.c_str(), parameterNameString.c_str(), RRF_RT_ANY, (LPDWORD)& valueType, parameterValue, &size) != ERROR_SUCCESS)
+		return ERROR_GET_VALUE;
 
-	memset(pathToTheKey, 0, sizeof(pathToTheKey));
-	memset(parameterName, 0, sizeof(parameterName));
+	else
+		if (!outputInformation.checkParameterTypeForOutput(valueType, parameterValue, size,parameterNameString))
+			return ERROR_UNSUPPORTED_REG_TYPE;
 
-	return true;
+	return NO_ERRORS;
 }
